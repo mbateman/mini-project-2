@@ -1,0 +1,27 @@
+<head>
+  <script src="http://d3js.org/d3.v4.min.js"></script>
+  <script src="http://dimplejs.org/dist/dimple.v2.3.0.min.js"></script>
+  <style>
+    h2 {
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <script type="text/javascript">
+    d3.select("body").append("h2").text("Types Of Debt");
+    var svg = dimple.newSvg("body", 800, 600);
+    var data = [
+      { "Debt Type":"Credit Cards", "Amount":16748 },
+      { "Debt Type":"Mortgages", "Amount":176222 },
+      { "Debt Type":"Auto Loans", "Amount":28948 },
+      { "Debt Type":"Student Loans", "Amount":49905 },
+      { "Debt Type":"Other Consumer Debt", "Amount":134643 }
+    ];
+    var chart = new dimple.chart(svg, data);
+    chart.addCategoryAxis("x", "Debt Type");
+    chart.addMeasureAxis("y", "Amount");
+    chart.addSeries(null, dimple.plot.bar);
+    chart.draw();
+  </script>
+</body>
